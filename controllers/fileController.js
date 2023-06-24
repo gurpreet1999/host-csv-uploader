@@ -31,6 +31,10 @@ async function uploadFile(req, res) {
 function exportFile(req, res) {
   uploadFileName = fs.readdirSync(path.join(__dirname, "../", "uploads"));
 
+  if(!uploadFileName
+    ){
+      uploadFileName=""
+    }
   return res.render("home", {
     files: uploadFileName,
   });
